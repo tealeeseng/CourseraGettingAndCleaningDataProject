@@ -7,7 +7,7 @@ The Project is as per https://class.coursera.org/getdata-008/human_grading/view/
 
 Data can be downloaded from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-An R script called run_analysis.R created that does the following. 
+You may check out the  R script called run_analysis.R. It does the following. 
 
 step1 Merges the training and the test sets to create one data set.
 step2 Extracts only the measurements on the mean and standard deviation for each measurement. 
