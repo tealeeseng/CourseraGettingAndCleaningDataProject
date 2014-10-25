@@ -19,7 +19,7 @@ For every step, a corresponding step#Result variable can be retrieved to analyze
 step1 Merges the training and the test sets to create one data set.
 
 
-<h3>Transformation Details</h3><br>
+<h3>Transformation Details</h3>
 step1 Merges the training and the test sets to create one data set.<br>
 features.txt and all txt files under test and train folders are read.table() and variables named as per filename. cbind test dataframe with actvity and subject. same cbind perform again on train dataframe. step1Result is rbind with test and train dataframe.
 
