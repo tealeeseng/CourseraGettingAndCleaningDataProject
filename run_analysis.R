@@ -1,17 +1,16 @@
 
-
 # step 1 starts here, Merges the training and the test sets to create one data set.
 
 # Loading files into data frame.
-features<-read.table(file="features.txt", header=FALSE )
+features<-read.table(file="UCI HAR Dataset/features.txt", header=FALSE )
 
-X_test<-read.table(file="test/X_test.txt",header=FALSE, col.names = features[[2]] )
-test_subject<-read.table(file="test/subject_test.txt",header=FALSE)
-test_activity<-read.table(file="test/y_test.txt",header=FALSE)
+X_test<-read.table(file="UCI HAR Dataset/test/X_test.txt",header=FALSE, col.names = features[[2]] )
+test_subject<-read.table(file="UCI HAR Dataset/test/subject_test.txt",header=FALSE)
+test_activity<-read.table(file="UCI HAR Dataset/test/y_test.txt",header=FALSE)
 
-X_train<-read.table(file="train/X_train.txt",header=FALSE, col.names = features[[2]] )
-train_subject<-read.table(file="train/subject_train.txt",header=FALSE)
-train_activity<-read.table(file="train/y_train.txt",header=FALSE)
+X_train<-read.table(file="UCI HAR Dataset/train/X_train.txt",header=FALSE, col.names = features[[2]] )
+train_subject<-read.table(file="UCI HAR Dataset/train/subject_train.txt",header=FALSE)
+train_activity<-read.table(file="UCI HAR Dataset/train/y_train.txt",header=FALSE)
 
 #column merging
 train<-X_train
@@ -34,7 +33,7 @@ meanAndStdInd=c(1:6,41:46,81:86,121:126,161:166,201,202,214,215,227:228,240:241,
 step2Result<-step1Result[,meanAndStdInd]
 
 #step3 starts here, Uses descriptive activity names to name the activities in the data set
-activity_labels<-read.table(file="activity_labels.txt", header=FALSE )
+activity_labels<-read.table(file="UCI HAR Dataset/activity_labels.txt", header=FALSE )
 colnames(activity_labels)[2]<-"activity_name"
 step3Result <- merge(step2Result, activity_labels, by.x="activity",by.y="V1")
 
@@ -67,11 +66,11 @@ colnames(step4Result)<-c("activity","tBodyAcc.mean.X","tBodyAcc.mean.Y",
 
 
 #step5 starts here, From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
 library(dplyr)
 
 step4ResultByActivitySubject <- step4Result %>% group_by(activity_name, subject)
 step5Result<-step4ResultByActivitySubject %>% summarise_each(funs(mean))
 
 write.table(step5Result, file="step5Result.txt",row.name=FALSE )
-
 
