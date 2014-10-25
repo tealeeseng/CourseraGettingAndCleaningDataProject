@@ -7,7 +7,7 @@ The Project is as per https://class.coursera.org/getdata-008/human_grading/view/
 
 Data can be downloaded from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-You may check out the  R script called run_analysis.R. It does the following. 
+After unzip data and move test and train folders into working folder, You may check out the  R script called run_analysis.R. It does the following. 
 
 step1 Merges the training and the test sets to create one data set.
 
