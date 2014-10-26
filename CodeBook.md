@@ -1,6 +1,8 @@
 CodeBook
 ==================
 
+CodeBook of variables are mainly defined in features.txt.
+
 
 R script called run_analysis.R and perform following major steps. Details of steps are further explained under section Transformation Details.
 
